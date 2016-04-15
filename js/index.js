@@ -20,5 +20,8 @@ app.controller('Tox_Controller', function($scope, $http) {
 			console.log($scope.results);
 			$scope.$apply();
 		});
+		$(document).on('click', '.applyBtn', function(){
+			$(this).toggleClass('btn-success');
+		});
 	});
 });
