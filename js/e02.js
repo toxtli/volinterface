@@ -1,11 +1,11 @@
-console.log('TEST ONE');
+console.log('TEST TWO');
 var config = {
 	url: 'json/data.json',
-	dbApi: 'http://localhost:3000/api/db/',
+	dbApi: 'http://learntier.ga:3000/api/db/',
 };
 var app = angular.module('Tox_App', []);
 app.controller('Tox_Controller', function($scope, $http) {
-	$http.get(config.dbApi + 'vol?active=1').success(function (response) {
+	$http.get(config.dbApi + 'vol?active=1&selected=1').success(function (response) {
 		$scope.data = response;
 		$scope.results = [];
 		var db = TAFFY(response);
