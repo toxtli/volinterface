@@ -134,13 +134,13 @@
                                     {{result.description}}
                                   </p>
                                   <p>
-                                    <a target="_blank" href="{{result.link}}">Position</a> / 
-                                    <a target="_blank" href="{{result.ngo_url}}">ONG</a> / 
-                                    <a target="_blank" href="{{result.tutorial}}">Tutorial</a>
+                                    <a id="position-{{result.idmicro}}" class="clickeable" target="_blank" href="{{result.link}}">Position</a> / 
+                                    <a id="ong-{{result.idmicro}}" class="clickeable" target="_blank" href="{{result.ngo_url}}">ONG</a> / 
+                                    <a id="tutorial-{{result.idmicro}}" class="clickeable" target="_blank" href="{{result.tutorial}}">Tutorial</a>
                                   </p>
                               </div>
-                              <a id="apply-{{result.idmicro}}" class="applyBtn btn btn-primary btn-large">Apply</a>
-                              <a target="_blank" class="btn btn-primary btn-large" href="https://docs.google.com/forms/d/1X-GYayu0pk4gGdaS5-FfZ8CCIj0iMN7s5qjDo6WImII/viewform">Feedback</a>
+                              <a id="apply-{{result.idmicro}}" class="applyBtn btn btn-primary btn-large clickeable">Apply</a>
+                              <a id="feedback-{{result.idmicro}}" target="_blank" class="btn btn-primary btn-large clickeable" href="https://docs.google.com/forms/d/1X-GYayu0pk4gGdaS5-FfZ8CCIj0iMN7s5qjDo6WImII/viewform">Feedback</a>
                           </div>
                         </div
                        </ul>

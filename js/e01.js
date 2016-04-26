@@ -2,6 +2,7 @@ console.log('TEST ONE');
 var config = {
 	url: 'json/data.json',
 	dbApi: 'http://learntier.ga:3000/api/db/',
+	study: '1'
 };
 var app = angular.module('Tox_App', []);
 app.controller('Tox_Controller', function($scope, $http) {
@@ -31,18 +32,21 @@ app.controller('Tox_Controller', function($scope, $http) {
 		});
 		$(document).on('click', '.applyBtn', function(){
 			$(this).toggleClass('btn-success');
-			var toBeSent = {'device': $('#deviceInput').val(), 'action': 'apply', 'study': '1', 'value': this.id.split('-')[1], 'date': Date.now(), 'date': new Date().toISOString()};
+		});
+		$(document).on('click', '.clickeable', function(){
+			var elems = this.id.split('-');
+			var toBeSent = {'device': $('#deviceInput').val(), 'action': elems[0], 'study': config.study, 'value': elems[1], 'date': new Date().toISOString()};
 			$scope.dbInsert('results', toBeSent);
 		});
-		$scope.dbInsert = function(table, dataObj) {
-			$.ajax({
-		    	url : config.dbApi + table,
-			    type: "POST",
-			    data: dataObj,
-			    success: function(data, textStatus, jqXHR) {
-			        console.log(data);
-				}
-			});
-		};
 	});
+	$scope.dbInsert = function(table, dataObj) {
+		$.ajax({
+	    	url : config.dbApi + table,
+		    type: "POST",
+		    data: dataObj,
+		    success: function(data, textStatus, jqXHR) {
+		        console.log(data);
+			}
+		});
+	};
 });

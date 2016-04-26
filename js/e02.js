@@ -2,6 +2,7 @@ console.log('TEST TWO');
 var config = {
 	url: 'json/data.json',
 	dbApi: 'http://learntier.ga:3000/api/db/',
+	study: '2'
 };
 var app = angular.module('Tox_App', []);
 app.controller('Tox_Controller', function($scope, $http) {
@@ -22,7 +23,7 @@ app.controller('Tox_Controller', function($scope, $http) {
 				]).get();
 				console.log($scope.results);
 				$scope.$apply();
-				var toBeSent = {'device': $('#deviceInput').val(), 'action': 'search', 'study': '2', 'value': values, 'date': new Date().toISOString()};
+				var toBeSent = {'device': $('#deviceInput').val(), 'action': 'search', 'study': config.study, 'value': values, 'date': new Date().toISOString()};
 				$scope.dbInsert('results', toBeSent);
 			} else {
 				alert('Please enter a device number');
@@ -30,7 +31,10 @@ app.controller('Tox_Controller', function($scope, $http) {
 		});
 		$(document).on('click', '.applyBtn', function(){
 			$(this).toggleClass('btn-success');
-			var toBeSent = {'device': $('#deviceInput').val(), 'action': 'apply', 'study': '2', 'value': this.id.split('-')[1], 'date': new Date().toISOString()};
+		});
+		$(document).on('click', '.clickeable', function(){
+			var elems = this.id.split('-');
+			var toBeSent = {'device': $('#deviceInput').val(), 'action': elems[0], 'study': config.study, 'value': elems[1], 'date': new Date().toISOString()};
 			$scope.dbInsert('results', toBeSent);
 		});
 	});
@@ -43,5 +47,5 @@ app.controller('Tox_Controller', function($scope, $http) {
 		        console.log(data);
 		    }
 		});
-	}
+	};
 });
