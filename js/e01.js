@@ -23,7 +23,7 @@ app.controller('Tox_Controller', function($scope, $http) {
 				$scope.results = db({skill:values}).get();
 				console.log($scope.results);
 				$scope.$apply();
-				var toBeSent = {'device': $('#deviceInput').val(), 'action': 'search', 'study': '1', 'value': values, 'date': Date.now()};
+				var toBeSent = {'device': $('#deviceInput').val(), 'action': 'search', 'study': '1', 'value': values, 'date': new Date().toISOString()};
 				$scope.dbInsert('results', toBeSent);
 			} else {
 				alert('Please enter a device number');
@@ -31,7 +31,7 @@ app.controller('Tox_Controller', function($scope, $http) {
 		});
 		$(document).on('click', '.applyBtn', function(){
 			$(this).toggleClass('btn-success');
-			var toBeSent = {'device': $('#deviceInput').val(), 'action': 'apply', 'study': '1', 'value': this.id.split('-')[1], 'date': Date.now(), 'date': Date.now()};
+			var toBeSent = {'device': $('#deviceInput').val(), 'action': 'apply', 'study': '1', 'value': this.id.split('-')[1], 'date': Date.now(), 'date': new Date().toISOString()};
 			$scope.dbInsert('results', toBeSent);
 		});
 		$scope.dbInsert = function(table, dataObj) {
