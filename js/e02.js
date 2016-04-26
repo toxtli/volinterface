@@ -22,7 +22,7 @@ app.controller('Tox_Controller', function($scope, $http) {
 				]).get();
 				console.log($scope.results);
 				$scope.$apply();
-				var toBeSent = {'device': $('#deviceInput').val(), 'action': 'search', 'study': '2', 'value': values};
+				var toBeSent = {'device': $('#deviceInput').val(), 'action': 'search', 'study': '2', 'value': values, 'date': Date.now()};
 				$scope.dbInsert('results', toBeSent);
 			} else {
 				alert('Please enter a device number');
@@ -30,7 +30,7 @@ app.controller('Tox_Controller', function($scope, $http) {
 		});
 		$(document).on('click', '.applyBtn', function(){
 			$(this).toggleClass('btn-success');
-			var toBeSent = {'device': $('#deviceInput').val(), 'action': 'apply', 'study': '2', 'value': this.id.split('-')[1]};
+			var toBeSent = {'device': $('#deviceInput').val(), 'action': 'apply', 'study': '2', 'value': this.id.split('-')[1], 'date': Date.now()};
 			$scope.dbInsert('results', toBeSent);
 		});
 	});
