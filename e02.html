@@ -1,0 +1,169 @@
+<html lang="en" ng-app="Tox_App" ng-controller="Tox_Controller">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900,100' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/index.css" />
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.js"></script>
+        <script src="js/taffy.js"></script>
+        <script src="js/e02.js"></script>
+    </head>
+
+    <body ng-app="volapp">
+    	<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="#"><span>LearnTier</span></a></div>
+                <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#tryit">Try it!<br></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="cover">
+            <div class="navbar">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><span>Brand</span></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="active">
+                                <a href="#">Home</a>
+                            </li>
+                            <li>
+                                <a href="#">Contacts</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="background-image-fixed cover-image" style="background-image : url('img/background.jpg')"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h1 class="text-inverse">LearnTier</h1>
+                        <p class="text-inverse">Achieve your professional goals through volunteering.</p>
+                        <br>
+                        <br>
+                        <a href="#tryit" class="btn btn-lg btn-primary">Try it!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="text-center">
+                            <a name="tryit">
+                                Search volunteer positions
+                            </a>
+                        </h1> </div>
+                </div>
+            </div>
+        </div>
+        <div class="" >
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">Volunteer Career Advisor</h4></div>
+                    <div class="modal-body">
+                        <form role="form">
+                            <div class="form-group">
+                                <label class="control-label" for="emailInput">
+                                    Device
+                                </label>
+                                <input type="text" class="form-control" id="deviceInput" >
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="emailInput">
+                                    Search
+                                </label>
+                                <input type="text" class="form-control" id="emailInput" >
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer"><a class="btn btn-default" data-dismiss="modal">Close</a><a class="btn btn-primary" id="searchButton">Search</a></div>
+                </div>
+            </div>
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    </div>
+                    <div class="modal-body">
+                       <ul>
+                        <div class="panel panel-primary" ng-repeat="result in results">
+                          <div class="panel-heading">
+                            <h3 class="panel-title">
+                                #{{result.idmicro}} > {{result.skill}}
+                            </h3>
+                          </div>
+                          <div class="panel-body">
+                              <div class="well">
+                                  <h3>
+                                    {{result.title}}
+                                  </h3>
+                                  <h4>
+                                    {{result.task}}
+                                  </h4>
+                                  <p>
+                                    {{result.description}}
+                                  </p>
+                                  <p>
+                                    <a target="_blank" href="{{result.link}}">Position</a> / 
+                                    <a target="_blank" href="{{result.ngo_url}}">ONG</a>
+                                  </p>
+                              </div>
+                              <a id="apply-{{result.idmicro}}" class="applyBtn btn btn-primary btn-large">Apply</a>
+                              <a target="_blank" class="btn btn-primary btn-large" href="https://docs.google.com/forms/d/156SpXa1Pd760Tq1hAu3oX1OpH4Irvn0y4MC4xUbPRS0/viewform">Feedback</a>
+                          </div>
+                        </div
+                       </ul>
+                    </div>
+                    <div class="modal-footer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="section section-primary">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h1>LearnTier</h1>
+                        <p>West Virginia University,
+                            <br>Citizenship Crowd Laboratory.
+                            <br>All rights reserved.</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="text-info text-right">
+                            <br>
+                            <br>
+                        </p>
+                        <div class="row">
+                            <div class="col-md-12 hidden-lg hidden-md hidden-sm text-left"> <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a> <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a> <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a> <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a> </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 hidden-xs text-right"> <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a> <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a> <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a> <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    	<p>1 + 2 = {{ 1 + 2 }}</p>
+    </body>
+</html>
