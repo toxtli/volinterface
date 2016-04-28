@@ -6,7 +6,7 @@ var config = {
 };
 var app = angular.module('Tox_App', []);
 app.controller('Tox_Controller', function($scope, $http) {
-	$http.get(config.dbApi + 'vol?active=1&selected=1').success(function (response) {
+	$http.get(config.dbApi + 'vol?selected=1').success(function (response) {
 		$scope.data = response;
 		$scope.results = [];
 		var db = TAFFY(response);
