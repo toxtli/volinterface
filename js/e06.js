@@ -1,7 +1,7 @@
 console.log('TEST ONE');
 var config = {
 	url: 'json/data.json',
-	dbApi: 'http://ec2-54-187-60-135.us-west-2.compute.amazonaws.com/:3000/api/db/',
+	dbApi: 'http://ec2-54-187-60-135.us-west-2.compute.amazonaws.com:3000/api/db/',
 	study: '1'
 };
 var app = angular.module('Tox_App', []);
