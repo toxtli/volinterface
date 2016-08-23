@@ -1,7 +1,7 @@
 console.log('TEST TWO');
 var config = {
 	url: 'json/data.json',
-	dbApi: 'http://learntier.ga:3000/api/db/',
+	dbApi: 'http://learnteer.ml:3000/api/db/',
 	study: '2'
 };
 var app = angular.module('Tox_App', []);
